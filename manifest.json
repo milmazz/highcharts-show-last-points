@@ -1,0 +1,28 @@
+{
+    "name": "highcharts-show-last-points",
+    "version": "0.1",
+    "title": "Show last points as a column near y-Axis",
+    "author": {
+        "name": "Milton Mazzarri",
+        "url": "http://milmazz.com.ve"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/milmazz/highcharts-show-last-points/blob/master/LICENSE"
+        }
+    ],
+    "dependencies": {
+        "highcharts": ">=3.0.0"
+    },
+    "description": "This plugin allows the user to see the last points as a column near y-Axis area",
+    "keywords": [
+        "addPoint"
+    ],
+    "homepage": "https://github.com/milmazz/highcharts-show-last-points",
+    "docs": "https://github.com/milmazz/highcharts-show-last-points",
+    "bugs": "https://github.com/milmazz/highcharts-show-last-points/issues/",
+    "download": "https://github.com/milmazz/highcharts-show-last-points/archive/master.zip",
+    "demo": [
+    ]
+}

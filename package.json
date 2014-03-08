@@ -1,0 +1,21 @@
+{
+  "name": "highcharts-show-last-points",
+  "version": "0.1.0",
+  "description": "Show last points as a column near y-Axis",
+  "main": "highcharts-show-last-points.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/milmazz/highcharts-show-last-points.git"
+  },
+  "keywords": [
+    "highcharts"
+  ],
+  "author": "Milton Mazzarri",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt-jsbeautifier": "~0.2.6",
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-uglify": "~0.2.7"
+  }
+}
