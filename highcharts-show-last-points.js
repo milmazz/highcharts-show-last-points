@@ -16,8 +16,7 @@
      * @param {Object} group - Group that contains the rects per yAxis.
      */
     var showLastPoints = function (chart, group) {
-        var series = chart.series,
-            yAxis = chart.yAxis,
+        var yAxis = chart.yAxis,
             plotBox = chart.plotBox,
             renderer = chart.renderer,
             rect = {
@@ -30,34 +29,36 @@
 
         group.add();
 
-        var showLastPoints = (yAxis.showLastPoints === undefined) ? true : yAxis.showLastPoints;
+        H.each(yAxis, function (yAxis) {
+            var showLastPoints = (yAxis.options.showLastPoints === undefined) ? true : yAxis.options.showLastPoints;
 
-        if (showLastPoints) {
-            for (var i = 0; i < series.length; i++) {
-                if (series[i].visible) {
-                    points_length = series[i].points.length;
-                    last_point = series[i].points[points_length - 1];
+            if (showLastPoints) {
+                for (var i = 0; i < yAxis.series.length; i++) {
+                    if (yAxis.series[i].visible) {
+                        points_length = yAxis.series[i].points.length;
+                        last_point = yAxis.series[i].points[points_length - 1];
 
-                    rect.x = counter + plotBox.x + plotBox.width + rect.width * (counter + 1);
-                    rect.y = plotBox.y + last_point.plotY;
-                    rect.height = chart.chartHeight - series[i].yAxis.bottom - last_point.plotY - plotBox.y;
+                        rect.x = counter + plotBox.x + plotBox.width + rect.width * (counter + 1);
+                        rect.y = plotBox.y + last_point.plotY;
+                        rect.height = chart.chartHeight - yAxis.bottom - last_point.plotY - plotBox.y;
 
-                    if (rect.height > 0) {
-                        if (rect.height > plotBox.height) {
-                            rect.height = plotBox.height;
+                        if (rect.height > 0) {
+                            if (rect.height > plotBox.height) {
+                                rect.height = plotBox.height;
+                            }
+
+                            renderer.rect(rect.x, rect.y, rect.width, rect.height, rect.radius)
+                                .attr({
+                                    fill: yAxis.series[i].color
+                                })
+                                .add(group);
+
+                            counter = counter + 1;
                         }
-
-                        renderer.rect(rect.x, rect.y, rect.width, rect.height, rect.radius)
-                            .attr({
-                                fill: series[i].color
-                            })
-                            .add(group);
-
-                        counter = counter + 1;
                     }
                 }
             }
-        }
+        });
     };
 
     H.wrap(H.Chart.prototype, "init", function (proceed) {
