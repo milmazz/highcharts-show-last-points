@@ -39,7 +39,7 @@
                         last_point = yAxis.series[i].points[points_length - 1];
 
                         rect.x = counter + plotBox.x + plotBox.width + rect.width * (counter + 1);
-                        rect.y = plotBox.y + last_point.plotY;
+                        rect.y = (last_point.plotY > 0) ? plotBox.y + last_point.plotY : plotBox.y;
                         rect.height = chart.chartHeight - yAxis.bottom - last_point.plotY - plotBox.y;
 
                         if (rect.height > 0) {
