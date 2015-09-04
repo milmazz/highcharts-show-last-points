@@ -1,6 +1,6 @@
 {
     "name": "highcharts-show-last-points",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "title": "Show last points as a column near y-Axis",
     "author": {
         "name": "Milton Mazzarri",
